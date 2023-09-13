@@ -19,7 +19,7 @@ fi
 #   echo "${SONAR_ROOT_CERT}" > /tmp/tmpcert.pem
 #   keytool -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt -trustcacerts -importcert -alias sonarqube -file /tmp/tmpcert.pem
 # fi
-keytool -delete -alias sonarqube -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt
+keytool -delete -keystore /etc/ssl/certs/java/cacerts -storepass changeit -noprompt
 
 if [[ -f "${INPUT_PROJECTBASEDIR%/}pom.xml" ]]; then
   echo "Maven project detected. You should run the goal 'org.sonarsource.scanner.maven:sonar' during build rather than using this GitHub Action."
